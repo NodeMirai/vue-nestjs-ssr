@@ -1,0 +1,61 @@
+{
+  "publicPath": "/dist-www/",
+  "all": [
+    "js/app.js",
+    "js/vendor-common.js",
+    "js/vendor-framework.js"
+  ],
+  "initial": [
+    "js/vendor-framework.js",
+    "js/vendor-common.js",
+    "js/app.js"
+  ],
+  "async": [],
+  "modules": {
+    "36955194": [
+      1
+    ],
+    "057ae8ac": [
+      0
+    ],
+    "66b8b2af": [
+      1
+    ],
+    "f2289fca": [
+      1
+    ],
+    "3202dc8e": [
+      2
+    ],
+    "15095d88": [
+      0
+    ],
+    "e2b84cf8": [
+      2
+    ],
+    "1f890136": [
+      2
+    ],
+    "aa907022": [
+      2
+    ],
+    "30949eaf": [
+      1
+    ],
+    "d385cbc6": [
+      0
+    ],
+    "f4866936": [
+      0
+    ],
+    "5b419268": [
+      0
+    ],
+    "6c0f0665": [
+      0
+    ],
+    "47fca896": [
+      0
+    ]
+  }
+}

@@ -22,7 +22,7 @@ const webpackConfig = {
       ? '//ali-imgs.acfun.cn/kos/nlav10360/static/'
       : '/dist-www/',
   },
-  stats: { children: false, logging: 'warn', assets: false },
+  // stats: { children: false, logging: 'warn', assets: false },
   resolve: {
     extensions: ['.ts', '.js', '.vue', '.tsx', '.jsx'],
     alias: {

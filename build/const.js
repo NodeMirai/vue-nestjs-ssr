@@ -10,7 +10,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 const isPre = process.env.NODE_ENV === 'preonline';
 
 
-const sourceDir = path.join(__dirname, '../client');
+const sourceDir = path.join(__dirname, '../views');
 const clientEntry = {
     app: path.join(sourceDir,'entry-client.ts'),
 };

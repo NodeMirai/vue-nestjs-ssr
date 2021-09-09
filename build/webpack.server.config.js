@@ -1,7 +1,6 @@
 const path = require('path');
 const WebpackDefinePlugin = require('webpack').DefinePlugin;
 const merge = require('webpack-merge');
-const nodeExternals = require('webpack-node-externals');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 
 const baseConfig = require('./webpack.base');
@@ -54,9 +53,6 @@ module.exports = merge(baseConfig, {
   output: {
     libraryTarget: 'commonjs2',
   },
-  externals: nodeExternals({
-    whitelist: [/\.css$/, /\.less$/, /\.vue$/],
-  }),
   plugins: [
     new VueSSRServerPlugin({
       filename: `../server/ssr/${serverBundleName}`,

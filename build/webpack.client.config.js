@@ -7,7 +7,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseConfig = require('./webpack.base');
 
-const { isDevelopment, isProduction, isPre, clientEntry, manifestName } = require('./const');
+const { isDevelopment, isProduction, isPre, clientEntry, manifestName, serverEntry } = require('./const');
 
 const prod = isProduction || isPre;
 const splitChunks = {
@@ -43,14 +43,14 @@ const splitChunks = {
 
 const optimization = {
   minimize: true,
-  minimizer: [
+  /* minimizer: [
     new TerserPlugin({
       test: /\.js(\?.*)?$/i,
       sourceMap: true,
       cache: true,
       parallel: true,
     }),
-  ],
+  ], */
   splitChunks: {
     ...splitChunks,
     name: false,
@@ -65,11 +65,11 @@ const devOptimization = {
 };
 
 module.exports = merge(baseConfig, {
-  entry: clientEntry,
+  entry: serverEntry,
   optimization: prod ? optimization : devOptimization,
   module: {
     rules: [
-      {
+      /* {
         test: /\.less$/,
         use: [
           {
@@ -93,8 +93,8 @@ module.exports = merge(baseConfig, {
             loader: 'less-loader',
           },
         ],
-      },
-      {
+      }, */
+      /* {
         test: /\.css?$/,
         include: [path.resolve('node_modules')],
         use: [
@@ -111,7 +111,7 @@ module.exports = merge(baseConfig, {
             },
           },
         ],
-      },
+      }, */
     ],
   },
   plugins: [
@@ -120,7 +120,7 @@ module.exports = merge(baseConfig, {
     }),
     new HtmlWebpackPlugin({
       template: 'client/template.html',
-      filename: '../server/ssr/template.html',
+      filename: '../server/index.template.html',
       inject: false,
     }),
 
@@ -128,10 +128,10 @@ module.exports = merge(baseConfig, {
       filename: `../server/${manifestName}`,
     }),
 
-    new MiniCssExtractPlugin({
+    /* new MiniCssExtractPlugin({
       filename: prod ? 'css/[name].[contenthash:8].css' : 'css/[name].css',
       chunkFilename: prod ? 'css/[id].[contenthash:8].css' : 'css/[id].css',
-    }),
+    }), */
 
     // new BundleAnalyzerPlugin(),
   ],
